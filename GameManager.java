@@ -5,6 +5,8 @@ public class GameManager {
     private static Player player1;
     private static Player player2;
 
+    private static Player currentPlayer;
+
     public GameManager() {
         highScore = 0;
         RoundsPlayed = 0;
@@ -27,7 +29,7 @@ public class GameManager {
     public void setUpGame() {
 
         setHighScore(0);
-        setRoundsPlayed(1);
+        setRoundsPlayed(new java.util.Random().nextInt(2) + 1);
 
         player1 = new Player(10,"Pöta");
         player1.actions.add(new ActionKick());
@@ -47,5 +49,11 @@ public class GameManager {
 
     public static Player getPlayer2() {
         return player2;
+    }
+    public static Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+    public static void setCurrentPlayer(Player player) {
+        GameManager.currentPlayer = player;
     }
 }
