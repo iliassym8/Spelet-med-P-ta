@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class GameState {
 
     public static void main(String[] args) {
+
         Music.playMusic();
 
         GameManager gameManager = new GameManager();
