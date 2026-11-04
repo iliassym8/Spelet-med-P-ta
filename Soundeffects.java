@@ -1,18 +1,21 @@
 import java.util.Random;
+import java.net.URL;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineEvent;
 
 public class Soundeffects {
     private static final Random random = new Random();
 
     public static void playSound(String sound) {
         switch (sound.toLowerCase()) {
-            case "punch" -> beep(1 + random.nextInt(2), 100);
-            case "kick" -> beep(2, 200);
-            case "spit" -> beep(3, 80);
-            case "heal" -> beep(2, 350);
-            case "victory" -> {
-                beep(3, 150);
-                pause(350);
-                beep(4, 100);
+            case "punch" -> playWav("Punch clipped.wav");
+            case "kick" -> playWav("Kick.1 clipped.wav");
+            case "spit" -> playWav("Spit.1 clipped.wav");
+            case "heal" -> playWav("Heal clipped.wav");
+            case "victory" -> { playWav("Victory.1 clipped.wav");
+                
             }
             default -> System.out.println("Unknown sound: " + sound);
         }
@@ -40,4 +43,33 @@ public class Soundeffects {
             Thread.currentThread().interrupt();
         }
     }
+
+    public static void playWav(String filename) {
+
+    try { URL soundURL = Soundeffects.class.getResource("/SoundEffects/" + filename);
+
+        if (soundURL == null) {
+            System.out.println("Sound not found: " + filename);
+            return;
+        }
+
+        AudioInputStream audioStream =
+                AudioSystem.getAudioInputStream(soundURL);
+
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+        audioStream.close();
+
+        clip.addLineListener(event -> {
+            if (event.getType() == LineEvent.Type.STOP) {
+                clip.close();
+            }
+        });
+
+        clip.start();
+
+    } catch (Exception e) {
+        System.out.println("Could not play sound: " + e.getMessage());
+    }
+}
 }
