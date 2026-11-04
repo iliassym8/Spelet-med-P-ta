@@ -2,12 +2,12 @@ public class ActionPunch extends Action {
 
     @Override
     public void effect(Player player) {
-            player.setLife(-1);
+            player.minusLife(-1);
     }
 
     @Override
     public String getName() {
-     return "Kick";
+     return "Punch";
     }
     
 }

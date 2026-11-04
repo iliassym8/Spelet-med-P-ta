@@ -1,8 +1,8 @@
-public class ActionGetHP extends Action{
+public class ActionHeal extends Action{
 
     @Override
     public void effect(Player player) {
-       player.setLife(+1);
+       player.addLife(+1);
         
     }
 
