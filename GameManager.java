@@ -21,7 +21,6 @@ public class GameManager {
     public static int getRoundsPlayed() {
         return RoundsPlayed;
     }
-
     public static void setRoundsPlayed(int roundsPlayed) {
         GameManager.RoundsPlayed = roundsPlayed;
     }
@@ -32,8 +31,14 @@ public class GameManager {
 
         player1 = new Player(10,"Pöta");
         player1.actions.add(new ActionKick());
+        player1.actions.add(new ActionPunch());
+        player1.actions.add(new ActionSpit());
+        player1.actions.add(new ActionHeal());
         player2 = new Player(10,"Ilias");
         player2.actions.add(new ActionKick());
+        player2.actions.add(new ActionPunch());
+        player2.actions.add(new ActionSpit());
+        player2.actions.add(new ActionHeal());
     }
 
     public static Player getPlayer1() {
