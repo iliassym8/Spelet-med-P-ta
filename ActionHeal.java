@@ -2,7 +2,8 @@ public class ActionHeal extends Action{
 
     @Override
     public void effect(Player player) {
-       player.addLife(1);
+       GameManager.getCurrentPlayer().addLife(1);
+       System.out.println(GameManager.getCurrentPlayer().getName() + "has, " + GameManager.getCurrentPlayer().getLife() + " life left.");
        Soundeffects.playSound("Heal");
 
     }
