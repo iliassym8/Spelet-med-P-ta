@@ -4,7 +4,7 @@ public class ActionKick extends Action {
 
     @Override
     public void effect(Player player) {
-        player.setLife(-1);
+        player.minusLife(-1);
       
     }
 

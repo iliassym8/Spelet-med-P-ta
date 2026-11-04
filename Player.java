@@ -14,6 +14,15 @@ public class Player {
     public void setLife(int life) {
         this.life = life;
     }
+    
+    public void addLife(int life) {
+        this.life += life;
+    }
+ 
+    public void minusLife(int life) {
+        this.life -= life;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -25,7 +34,7 @@ public class Player {
 
     List<Action> actions = new ArrayList<>();
 
-    
+
     
 
 
