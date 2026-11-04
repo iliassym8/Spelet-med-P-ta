@@ -1,5 +1,6 @@
 public class GameManager {
-    private static int highScore;
+    private static int highScorePlayer1;
+    private static int highScorePlayer2;        
     private static int RoundsPlayed;
 
     private static Player player1;
@@ -8,16 +9,25 @@ public class GameManager {
     private static Player currentPlayer;
 
     public GameManager() {
-        highScore = 0;
+        highScorePlayer1 = 0;
+        highScorePlayer2 = 0;
         RoundsPlayed = 0;
     }
 
-    public int getHighScore() {
-        return highScore;
+    public static int getHighScorePlayer1() {
+        return highScorePlayer1;
     }
 
-    public static void setHighScore(int highScore) {
-        GameManager.highScore = highScore;
+    public static void setHighScorePlayer1(int highScorePlayer1) {
+        GameManager.highScorePlayer1 = highScorePlayer1;
+    }
+
+    public static int getHighScorePlayer2() {
+        return highScorePlayer2;
+    }
+
+    public static void setHighScorePlayer2(int highScorePlayer2) {
+        GameManager.highScorePlayer2 = highScorePlayer2 ;
     }
 
     public static int getRoundsPlayed() {
@@ -28,7 +38,8 @@ public class GameManager {
     }
     public void setUpGame() {
 
-        setHighScore(0);
+        setHighScorePlayer1(0);
+        setHighScorePlayer2(0);
         setRoundsPlayed(new java.util.Random().nextInt(2) + 1);
 
         player1 = new Player(10,"Pöta");

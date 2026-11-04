@@ -16,14 +16,20 @@ public class Combat {
                 performAction(player1, player2);
             } else {
                 GameManager.setCurrentPlayer(player2);
-                
+
                 performAction(player2, player1);
             }
             if (player1.getLife() <= 0) {
-                System.out.println(player2.getName() + " wins!");
+                System.out.println(player2.getName() + " WINS!!");
+                GameManager.setHighScorePlayer1(GameManager.getHighScorePlayer2() + 1);
+                System.out.println(player1.getName() + " has " + GameManager.getHighScorePlayer1() + " points.");
+                System.out.println(player2.getName() + " has " + GameManager.getHighScorePlayer2() + " points.");
                 break;
             } else if (player2.getLife() <= 0) {
-                System.out.println(player1.getName() + " wins!");
+                System.out.println(player1.getName() + " WINS!");
+                GameManager.setHighScorePlayer2(GameManager.getHighScorePlayer1() + 1);
+                System.out.println(player1.getName() + " has " + GameManager.getHighScorePlayer1() + " points.");
+                System.out.println(player2.getName() + " has " + GameManager.getHighScorePlayer2() + " points.");
                 break;
             }
         }
